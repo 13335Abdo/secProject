@@ -1,0 +1,186 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F0F5FD;
+}
+
+.curser {
+    cursor: pointer;
+}
+
+.bg-wep {
+    background: linear-gradient(90deg, #7F22FE, #4F39F6);
+}
+
+.paper h3 {
+    margin-bottom: -5px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    color: oklch(0.21 0.034 264.665);
+    /* أو 0 */
+}
+
+.paper p {
+    margin-top: 0;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: oklch(0.551 0.027 264.364);
+}
+
+.paper span {
+    color: #7F22FE;
+}
+
+.showw {
+    box-shadow: 0px 0px 5px black;
+}
+
+.font {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.alwan {
+    color: oklch(0.551 0.027 264.364);
+    transition: 0.5s;
+}
+
+.alwan:hover {
+    color: black;
+
+}
+
+.w-40px {
+    width: 40px;
+}
+
+.hover {
+    transition: 0.2s;
+}
+
+.hover:hover {
+    position: relative;
+    transform: translate(0px, -5px);
+    box-shadow: 0px 3px 10px #4F39F6;
+}
+
+.total {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    color: oklch(0.551 0.027 264.364);
+
+    margin-bottom: -1px;
+}
+
+.zero {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    color: oklch(0.21 0.034 264.665);
+}
+
+.users {
+    background-color: #2272FF;
+}
+
+.parent {
+    padding: 10px;
+}
+
+.star {
+    background-color: #FF9B00;
+}
+
+.starr {
+    background-color: #F81243;
+}
+
+.aaa {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+    color: oklch(0.21 0.034 264.665);
+}
+
+.bbb {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: oklch(0.551 0.027 264.364);
+}
+
+.fav {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: oklch(0.21 0.034 264.665);
+    margin-bottom: -3px;
+
+}
+
+.quick {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 16.5px;
+    color: oklch(0.551 0.027 264.364);
+}
+
+.zzz {
+    background-color: #FFF8EC;
+}
+
+.no {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: oklch(0.707 0.022 261.325);
+    position: relative;
+    top: 45px;
+}
+
+.height-110 {
+    min-height: 110px;
+}
+
+.anamehana {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 36px;
+    color: oklch(0.872 0.01 258.338);
+}
+
+.height-200px {
+    min-height: 290px;
+}
+
+.vvv {
+    display: inline-block;
+    padding: 22px;
+    border-radius: 15px;
+    background-color: #F3F4F6;
+    margin-top: 60px;
+}
+
+.qwe {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: oklch(0.551 0.027 264.364);
+}
+
+.asd {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: oklch(0.707 0.022 261.325);
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/index-style.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary py-2 px-5 position-fixed w-100 z-3">
+        <div class="container-fluid">
+            <div class="p-2 bg-wep rounded-3 showw"><i class="fa-solid fa-address-book text-white fs-5 my-auto"></i>
+            </div>
+            <div class="collapse navbar-collapse ms-3 mt-1" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <div class="paper">
+                            <h3>Contact<span>Hub</span></h3>
+                            <p>Smart Contact Manager</p>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+
+                    </li>
+
+                </ul>
+                <form class="d-flex" role="search">
+
+                    <button class="btn btn-outline-success bg-wep font border-0 py-2 px-3 rounded-3 hover"
+                        type="submit"><i class="fa-solid fa-plus me-2"></i>Add contant</button>
+                    <div class="my-auto ms-3 alwan curser"><i class="fa-solid fa-bell"></i></div>
+                    <div class="my-auto ms-5 alwan curser"><i class="fa-solid fa-gear"></i></div>
+                    <div><img src="./images/avatar-4.png" class="w-40px rounded-3 ms-3" alt=""></div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="pt-5 px-5 container-fluid">
+        <div class="row">
+            <div class="parent  col-4 ">
+                <div class="mt-5 bg-white rounded-4">
+                    <div class="d-flex ms-3">
+                        <div class="my-auto p-3 users rounded-4 text-white"><i class="fa-solid fa-users"></i></div>
+                        <div class="my-auto ms-3 mt-3">
+                            <p class="total">TOTAL</p>
+                            <p class="zero">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parent  col-4 ">
+                <div class="mt-5 bg-white rounded-4">
+                    <div class="d-flex ms-3">
+                        <div class="my-auto p-3 star rounded-4 text-white"><i class="fa-solid fa-star"></i></div>
+                        <div class="my-auto ms-3 mt-3">
+                            <p class="total">TOTAL</p>
+                            <p class="zero">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parent  col-4 ">
+                <div class="mt-5 bg-white rounded-4">
+                    <div class="d-flex ms-3">
+                        <div class="my-auto p-3 starr rounded-4 text-white"><i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <div class="my-auto ms-3 mt-3">
+                            <p class="total">TOTAL</p>
+                            <p class="zero">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section class="mt-4 px-5 container-fluid">
+        <div class="row">
+            <div class="col-9">
+                <h2 class="aaa">All Contacts</h2>
+                <p class="bbb">Manage and organize your 0 contacts</p>
+                <div class="position-relative">
+                    <i
+                        class="fa-solid fa-magnifying-glass position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                    <input type="text" class="form-control ps-5" placeholder="search by name, phone, or email  ">
+                </div>
+
+                <div class="text-center anamehana height-200px">
+                    <span class="vvv"><i class="fa-solid fa-address-book"></i></span>
+                    <p class="qwe">No contacts found</p>
+                    <p class="asd">Click "Add Contact" to get started</p>
+                </div>
+
+            </div>
+            <div class="col-3">
+                <div class="ms-1">
+                    <div class="d-flex zzz rounded-top-4">
+                        <div class="my-auto p-2 star rounded-3 ms-2 text-white"><i class="fa-solid fa-star"></i></div>
+                        <div class="my-auto ms-3 mt-3">
+                            <p class="fav">Favorites</p>
+                            <p class="quick">Quick access to starred contacts</p>
+                        </div>
+                    </div>
+                    <div class="text-center bg-white my-auto height-110 rounded-bottom-4">
+                        <p class="no">No favorites yet</p>
+                    </div>
+                </div>
+                <div class="ms-1 mt-4">
+                    <div class="d-flex zzz rounded-top-4">
+                        <div class="my-auto p-2 starr rounded-3 ms-2 text-white"><i class="fa-solid fa-heart-pulse"></i></div>
+                        <div class="my-auto ms-3 mt-3">
+                            <p class="fav">Emergency</p>
+                            <p class="quick">Important contacts for urgent calls
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-center bg-white my-auto height-110 rounded-bottom-4">
+                        <p class="no">No emergency contacts</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/mine.js"></script>
+</body>
+
+</html>

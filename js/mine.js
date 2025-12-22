@@ -13,9 +13,25 @@ var userCheckInput = document.getElementById("check");
 var userCheck2Input = document.getElementById("checkk");
 var userSearch = document.getElementById("search");
 var allThing = []
+var halfThing = []
+var half2Thing= []
 var y = -1
 
 
+if (localStorage.getItem("contect1")) {
+    halfThing = JSON.parse(localStorage.getItem("contect1"))
+
+
+    display2()
+
+}
+if (localStorage.getItem("contect2")) {
+    half2Thing = JSON.parse(localStorage.getItem("contect2"))
+
+
+    display3()
+
+}
 if (localStorage.getItem("contect")) {
     allThing = JSON.parse(localStorage.getItem("contect"))
 
@@ -26,26 +42,28 @@ if (localStorage.getItem("contect")) {
 
 
 addd = function add() {
-    
-    var imgName = userimgInput.files[0].name
 
+    var imgName = userimgInput.files[0].name
     var imgPath = "images/" + imgName
-    allThing.push(
-        {
-            namee: userNameInput.value,
-            phone: userPassInput.value,
-            email: userEmailInput.value,
-            address: userAddressInput.value,
-            note: userNoteInput.value,
-            group: userGroubInput.value,
-            img:imgPath
-        }
-    )
+
+    allThing.push({
+        // ✅ تعديل: إضافة id عشان نربط العنصر في كل القوايم
+        id: Date.now(),
+
+        namee: userNameInput.value,
+        phone: userPassInput.value,
+        email: userEmailInput.value,
+        address: userAddressInput.value,
+        note: userNoteInput.value,
+        group: userGroubInput.value,
+        img: imgPath
+    })
 
     localStorage.setItem("contect", JSON.stringify(allThing))
     display()
     clear()
 }
+
 
 function display() {
     var cartona = ""
@@ -53,6 +71,8 @@ function display() {
         cartona += design(i)
     }
     document.getElementById("contactsContainer").innerHTML = cartona
+    w()
+    wwww()
 }
 
 
@@ -150,9 +170,9 @@ importantButton.addEventListener("click", function () {
     ) {
 
         if (y === -1) {
-            addd();        // ➕ إضافة
+            addd();
         } else {
-            update();      // ✏️ تعديل
+            update();
         }
 
         overLay.style.display = "none";
@@ -182,17 +202,35 @@ function clear() {
 }
 
 
-function design2(v)
-{
-    return`
+function design2(v) {
+    return `
 
     <div class="mini-card">
   <div class="left">
-    <div class="mini-avatar">E</div>
+    <div class="mini-avatar"> <img class="mini-avatar" src="${halfThing[v].img}" alt=""></div>
 
     <div class="mini-info">
-      <h6>ergwergw</h6>
-      <span>01000000003</span>
+      <h6>${halfThing[v].namee}</h6>
+      <span>${halfThing[v].phone}</span>
+    </div>
+  </div>
+
+  <div class="call-btn">
+    <i class="fa-solid fa-phone"></i>
+  </div>
+</div>`
+}
+
+function design3(v) {
+    return `
+
+    <div class="mini-card">
+  <div class="left">
+    <div class="mini-avatar"> <img class="mini-avatar" src="${half2Thing[v].img}" alt=""></div>
+
+    <div class="mini-info">
+      <h6>${half2Thing[v].namee}</h6>
+      <span>${half2Thing[v].phone}</span>
     </div>
   </div>
 
@@ -271,12 +309,31 @@ function search() {
 }
 
 function deleteItem(x) {
-    y = x;
-    allThing.splice(x, 1)
-    localStorage.setItem("contect", JSON.stringify(allThing))
-    display()
 
+    // ✅ حل جديد: الاعتماد على رقم الموبايل
+    var deletedPhone = allThing[x].phone;
+
+    // مسح من القائمة الأساسية
+    allThing.splice(x, 1);
+
+    // مسح من fav بنفس رقم الموبايل
+    halfThing = halfThing.filter(item => item.phone !== deletedPhone);
+
+    // مسح من ams بنفس رقم الموبايل
+    half2Thing = half2Thing.filter(item => item.phone !== deletedPhone);
+
+    // حفظ
+    localStorage.setItem("contect", JSON.stringify(allThing));
+    localStorage.setItem("contect1", JSON.stringify(halfThing));
+    localStorage.setItem("contect2", JSON.stringify(half2Thing));
+
+    // إعادة العرض
+    display();
+    display2();
+    display3();
 }
+
+
 
 function fill(z) {
     y = z
@@ -304,3 +361,101 @@ function update() {
 
 }
 
+userCheckInput.addEventListener("change", function () {
+    if (this.checked) {
+        addd2();
+    }
+});
+
+
+
+addd2 = function add2() {
+
+    var imgName = userimgInput.files[0].name
+    var imgPath = "images/" + imgName
+
+    halfThing.push({
+
+        namee: userNameInput.value,
+        phone: userPassInput.value,
+        img: imgPath
+    })
+
+    localStorage.setItem("contect1", JSON.stringify(halfThing))
+    display2()
+}
+
+
+
+function display2() {
+    var cartona2 = ""
+    for (var i = 0; i < halfThing.length; i++) {
+        cartona2 += design2(i)
+    }
+    document.getElementById("favorate").innerHTML = cartona2
+    ww()
+}
+
+
+
+userCheck2Input.addEventListener("change", function () {
+    if (this.checked) {
+        addd3();
+    }
+});
+
+
+
+addd3 = function add3() {
+
+    var imgName = userimgInput.files[0].name
+
+    var imgPath = "images/" + imgName
+    half2Thing.push(
+        {
+            namee: userNameInput.value,
+            phone: userPassInput.value,
+            img: imgPath
+        }
+    )
+    
+    localStorage.setItem("contect2", JSON.stringify(half2Thing))
+    display3()
+
+}
+
+
+function display3() {
+    var cartona3 = ""
+    for (var i = 0; i < half2Thing.length; i++) {
+        cartona3 += design3(i)
+    }
+    document.getElementById("emergency").innerHTML = cartona3
+    www()
+}
+
+
+
+
+function w()
+{
+    
+document.getElementById("total").innerHTML=allThing.length
+}
+
+function ww()
+{
+    
+document.getElementById("fav").innerHTML=halfThing.length
+}
+
+function www()
+{
+    
+document.getElementById("ams").innerHTML=half2Thing.length
+}
+
+function wwww()
+{   
+document.getElementById("sss").innerHTML=allThing.length
+}

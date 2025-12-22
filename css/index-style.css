@@ -290,7 +290,6 @@ body {
   color: #6d28d9;
 }
 .mini-card {
-  background: #fffbe6;
   border-radius: 12px;
   padding: 10px 12px;
   display: flex;
@@ -310,10 +309,6 @@ body {
 .mini-avatar {
   width: 36px;
   height: 36px;
-  background: #2563eb;
-  color: #fff;
-  font-weight: 600;
-  font-size: 16px;
   border-radius: 10px;
   display: flex;
   align-items: center;

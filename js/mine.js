@@ -43,13 +43,19 @@ if (localStorage.getItem("contect")) {
 
 addd = function add() {
 
+    // ✅ فحص: هل رقم التليفون موجود قبل كده
+    for (var i = 0; i < allThing.length; i++) {
+        if (allThing[i].phone == userPassInput.value) {
+            swal(); // رقم مكرر
+            return false; // نوقف الإضافة
+        }
+    }
+
     var imgName = userimgInput.files[0].name
     var imgPath = "images/" + imgName
 
     allThing.push({
-        // ✅ تعديل: إضافة id عشان نربط العنصر في كل القوايم
         id: Date.now(),
-
         namee: userNameInput.value,
         phone: userPassInput.value,
         email: userEmailInput.value,
@@ -62,7 +68,9 @@ addd = function add() {
     localStorage.setItem("contect", JSON.stringify(allThing))
     display()
     clear()
+    return true; // ✅ نجاح
 }
+
 
 
 function display() {
@@ -169,20 +177,26 @@ importantButton.addEventListener("click", function () {
         regix3.test(userEmailInput.value)
     ) {
 
+        let result;
+
         if (y === -1) {
-            addd();
+            result = addd();   // 👈 نمسك النتيجة
         } else {
             update();
+            result = true;
         }
 
-        overLay.style.display = "none";
-        succes();
-        clear();
+        if (result) {          // 👈 success بس لو فعلاً اتضاف
+            overLay.style.display = "none";
+            succes();
+            clear();
+        }
 
     } else {
         swal();
     }
 });
+
 
 
 
@@ -198,6 +212,8 @@ function clear() {
     userPassInput.classList.remove("is-invalid")
     userNameInput.classList.remove("is-valid");
     userNameInput.classList.remove("is-invalid")
+    userCheckInput.checked = false ;
+    userCheck2Input.checked = false ;
     y = -1
 }
 
@@ -370,6 +386,12 @@ userCheckInput.addEventListener("change", function () {
 
 
 addd2 = function add2() {
+    for (var i = 0; i < halfThing.length; i++) {
+        if (halfThing[i].phone == userPassInput.value) {
+            swal(); // رقم مكرر
+            return; // نوقف الإضافة
+        }
+    }
 
     var imgName = userimgInput.files[0].name
     var imgPath = "images/" + imgName
@@ -408,6 +430,12 @@ userCheck2Input.addEventListener("change", function () {
 
 addd3 = function add3() {
 
+    for (var i = 0; i < half2Thing.length; i++) {
+        if (half2Thing[i].phone == userPassInput.value) {
+            swal(); // رقم مكرر
+            return; // نوقف الإضافة
+        }
+    }
     var imgName = userimgInput.files[0].name
 
     var imgPath = "images/" + imgName

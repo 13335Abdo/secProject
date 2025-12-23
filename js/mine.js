@@ -14,7 +14,7 @@ var userCheck2Input = document.getElementById("checkk");
 var userSearch = document.getElementById("search");
 var allThing = []
 var halfThing = []
-var half2Thing= []
+var half2Thing = []
 var y = -1
 
 
@@ -212,8 +212,8 @@ function clear() {
     userPassInput.classList.remove("is-invalid")
     userNameInput.classList.remove("is-valid");
     userNameInput.classList.remove("is-invalid")
-    userCheckInput.checked = false ;
-    userCheck2Input.checked = false ;
+    userCheckInput.checked = false;
+    userCheck2Input.checked = false;
     y = -1
 }
 
@@ -297,11 +297,12 @@ function design(i) {
     </div>
 
     <div class="actions-right">
-      <i class="fa-regular fa-star"></i>
-      <i class="fa-regular fa-heart"></i>
-      <i onclick="fill(${i})" class="fa-solid fa-pen"></i>
-      <i onclick="deleteItem(${i})" class="fa-solid fa-trash"></i>
-    </div>
+  <i onclick="addToFav(${i})" class="fa-regular fa-star"></i>
+  <i onclick="addToAms(${i})" class="fa-regular fa-heart"></i>
+  <i onclick="fill(${i})" class="fa-solid fa-pen"></i>
+  <i onclick="deleteItem(${i})" class="fa-solid fa-trash"></i>
+</div>
+
   </div>
 
 </div>
@@ -383,6 +384,8 @@ userCheckInput.addEventListener("change", function () {
     }
 });
 
+yyy = document.querySelector(".fa-star")
+zzz = document.querySelector(".fa-heart")
 
 
 addd2 = function add2() {
@@ -446,7 +449,7 @@ addd3 = function add3() {
             img: imgPath
         }
     )
-    
+
     localStorage.setItem("contect2", JSON.stringify(half2Thing))
     display3()
 
@@ -465,25 +468,59 @@ function display3() {
 
 
 
-function w()
-{
-    
-document.getElementById("total").innerHTML=allThing.length
+function w() {
+
+    document.getElementById("total").innerHTML = allThing.length
 }
 
-function ww()
-{
-    
-document.getElementById("fav").innerHTML=halfThing.length
+function ww() {
+
+    document.getElementById("fav").innerHTML = halfThing.length
 }
 
-function www()
-{
-    
-document.getElementById("ams").innerHTML=half2Thing.length
+function www() {
+
+    document.getElementById("ams").innerHTML = half2Thing.length
 }
 
-function wwww()
-{   
-document.getElementById("sss").innerHTML=allThing.length
+function wwww() {
+    document.getElementById("sss").innerHTML = allThing.length
+}
+
+
+
+
+
+
+function addToFav(i) {
+
+    // منع التكرار
+    for (var x = 0; x < halfThing.length; x++) {
+        if (halfThing[x].phone === allThing[i].phone) {
+            swal(); // موجود قبل كده
+            return;
+        }
+    }
+
+    halfThing.push(allThing[i]);
+
+    localStorage.setItem("contect1", JSON.stringify(halfThing));
+    display2();
+}
+
+
+function addToAms(i) {
+
+    // منع التكرار
+    for (var x = 0; x < half2Thing.length; x++) {
+        if (half2Thing[x].phone === allThing[i].phone) {
+            swal(); // موجود قبل كده
+            return;
+        }
+    }
+
+    half2Thing.push(allThing[i]);
+
+    localStorage.setItem("contect2", JSON.stringify(half2Thing));
+    display3();
 }
